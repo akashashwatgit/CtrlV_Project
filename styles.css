@@ -1,0 +1,160 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Brodacre', sans-serif;
+    font-style: normal;
+    line-height: 1.6;
+}
+
+
+/* Navbar Styling */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+    align-items:center;
+}
+.navbar ul li a:hover {
+    color: lightskyblue;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar .social-icons a {
+    margin-left: 10px;
+}
+
+.navbar .social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Background Section */
+.background1 {
+
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3));
+    padding: 0 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.backvideo{
+    position: absolute;
+    right: 0;
+
+    z-index: -1;
+}
+
+.background1-content {
+    text-align: left;
+    color: white;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.background1-content h1 {
+    font-size: 54px;
+    margin-bottom: 10px;
+    color: lightskyblue;
+}
+.background1-content h1:hover{
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+
+}
+.background1-content p {
+    font-size: 30px;
+    font-style: italic;
+}
+
+/* Plans Section */
+.plans {
+    padding-top:220px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    position: relative;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.plans h2 {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 36px;
+    color: lightskyblue;
+    margin-bottom: 20px;
+    font-family: 'Brodacre'sans-serif;
+}
+
+.plans .tagline {
+    font-size: 24px;
+    font-weight: 300;
+    color: white;
+    font-family: 'Segoe script'sans-serif;
+}
+
+.plan-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.plan-card {
+    background-color: black;
+    align-content: end;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+    font-family: 'Brodacre'sans-serif;
+}
+
+.plan-card:hover {
+    transform: scale(1.05);
+}
+.logo{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+footer{
+    display: flex;
+    background-color: black;
+    bottom: 0;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+    
+}
