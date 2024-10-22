@@ -70,7 +70,7 @@ body{
 .plans-text{
     font-size: xx-large;
     background-color: rgba(0, 0, 0, 0.8);
-    color: gray;
+    color: whitesmoke;
 }
 .navbar {
     display: flex;
