@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Loss Journey</title>
+    <link rel="stylesheet" href="weightloss.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="./assets/logo.png" alt="Company Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="./plans.html">Plans</a></li>
+                <li><a href="#">Wellness</a></li>
+                <li><a href="#">Fitness</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Consult</a></li>
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="https://github.com/akashashwatgit/CtrlV_Project/"><img src="./assets/github icon.png" alt="GitHub"></a>
+            <a href="#"><img src="./assets/twitter icon.png" alt="Follow us on Twitter"></a>
+            <a href="#"><img src="./assets/instagram icon.png" alt="Follow us on Instagram"></a>
+            <a href="#"><img src="./assets/linkedin icon.png" alt="Connect on LinkedIn"></a>
+        </div>
+    </header>
+
+    <div class="background1-content">
+        <h1>Start your weight loss journey with expert guidance and personalized plans that work for you.</h1>
+        <p>Our programs combine effective workouts, tailored nutrition, and lifestyle changes to help you lose weight safely and sustainably. Achieve your fitness goals, boost your confidence, and embrace a healthier, happier you.</p>
+    </div>
+
+    <div class="calculator-container">
+        <h1>TDEE Calculator</h1>
+        <form id="tdeeForm">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" required>
+
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female" required> Female</label>
+            </div>
+
+            <label for="activity">Activity Level:</label>
+            <select id="activity" required>
+                <option value="1.2">Sedentary (little to no exercise)</option>
+                <option value="1.375">Light exercise (1-3 days per week)</option>
+                <option value="1.55">Moderate exercise (3-5 days per week)</option>
+                <option value="1.725">Heavy exercise (6-7 days per week)</option>
+                <option value="1.9">Very heavy exercise (twice per day, hard labor job)</option>
+            </select>
+
+            <button type="button" onclick="calculateTDEE()">Calculate TDEE</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="weightloss.js"></script>
+
+    <div class="table-text">
+        <p>Based on your TDEE (Total Daily Energy Expenditure), select the plan that best aligns with your weight loss or fitness goals. Each plan is designed to create a precise calorie deficit tailored to your activity level and desired pace of progress. Whether you're aiming for gradual, sustainable weight loss or a more rapid transformation, our expert-designed programs ensure that you're in control of your journey.
+
+            By understanding your unique energy requirements, you'll be able to choose a plan that supports both your short-term results and long-term health. Explore our range of personalized options and commit to a program that helps you reach your ideal body composition, while maintaining the right balance of nutrition and activity for optimal performance and well-being.</p>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Program</th>
+                    <th>Duration</th>
+                    <th>Calorie Deficit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Slow Weight Loss</td>
+                    <td>0.27kg/week</td>
+                    <td>300 calories/day</td>
+                </tr>
+                <tr>
+                    <td>Mild Weight Loss</td>
+                    <td>0.5kg/week</td>
+                    <td>500-700 calories/day</td>
+                </tr>
+                <tr>
+                    <td>Fast Weight Loss</td>
+                    <td>1kg/week</td>
+                    <td>900-1200 calories/day</td>
+                </tr>
+                <tr>
+                    <td>Extreme Weight Loss</td>
+                    <td>1.5kg/week</td>
+                    <td>1400-1700 calories/day</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1>Find Recipes Based on Your TDEE</h1>
+    <p>Enter your calorie limit to get recipe suggestions:</p>
+    
+    <form id="recipe-form">
+        <label for="calories">Calorie Limit:</label>
+        <input type="number" id="calories" placeholder="e.g., 2000" required>
+        <button type="submit">Get Recipes</button>
+    </form>
+    
+    <div id="recipes"></div>
+
+    <script>
+        document.getElementById('recipe-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const calorieLimit = document.getElementById('calories').value;
+            const apiKey = 'aff55161e37046e7b3e8ee8cbb912cfb';  // Replace with your Spoonacular API key
+            const apiUrl = `https://api.spoonacular.com/recipes/findByNutrients?maxCalories=${calorieLimit}&number=5&apiKey=${apiKey}`;
+            
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const recipesContainer = document.getElementById('recipes');
+                    recipesContainer.innerHTML = ''; // Clear previous results
+                    
+                    data.forEach(recipe => {
+                        const recipeDiv = document.createElement('div');
+                        recipeDiv.classList.add('recipe');
+                        
+                        const recipeTitle = document.createElement('h3');
+                        recipeTitle.textContent = recipe.title;
+                        
+                        const recipeImage = document.createElement('img');
+                        recipeImage.src = recipe.image;
+                        recipeImage.alt = recipe.title;
+
+                        const recipeInfo = document.createElement('p');
+                        recipeInfo.textContent = `Calories: ${recipe.calories}`;
+                        
+                        recipeDiv.appendChild(recipeTitle);
+                        recipeDiv.appendChild(recipeImage);
+                        recipeDiv.appendChild(recipeInfo);
+                        recipesContainer.appendChild(recipeDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching recipes:', error);
+                });
+        });
+    </script>
+
+</body>
+</html>
