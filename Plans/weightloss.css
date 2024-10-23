@@ -1,0 +1,191 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url(./assets/weightlosspg.webp);
+    background-size: cover;
+    background-position: center;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0px;
+    width: 100%;
+
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+    align-items:center;
+}
+.navbar ul li a:hover {
+    color: lightskyblue;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar .social-icons a {
+    margin-left: 10px;
+}
+
+.navbar .social-icons img {
+    width: 30px;
+    height: 30px;
+}
+.background1-content {
+    text-align: left;
+    color: white;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.background1-content h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: lightskyblue;
+}
+.background1-content h1:hover{
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+
+}
+.background1-content p {
+    font-size: 18px;
+    font-style: italic;
+}
+.calculator-container {
+    background-color:rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ddd;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="number"], select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+.table-text{
+    font-size: 18px;
+    color:whitesmoke ;
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+}
+.table-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px;
+    
+
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+thead {
+    background-color: #007BFF;
+    color: white;
+}
+
+thead th {
+    padding: 10px;
+    text-align: left;
+    font-size: 22px;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 16px;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+tbody tr:hover {
+    background-color: wheat;
+    color: black;
+}
+
+td, th {
+    border: 1px solid #ddd;
+}
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .calculator-container, .table-container {
+        width: 90%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}
